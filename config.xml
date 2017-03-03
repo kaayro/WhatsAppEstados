@@ -27,5 +27,6 @@
 		<platform name="android" />
 		
 		<gap:plugin name="com-admob-plugin" source="npm"/>
+		<plugin name="nl.madebymark.share" source="pgb" />
 		
     </widget>

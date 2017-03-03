@@ -11,9 +11,10 @@ var app = {
 		
 		//acciones
 		$('#category').change(app.changeCategory);
-		$('#btn-next').click(app.nextImage);
-		$('#btn-back').click(app.backImage);
+		$('#btn-next').tap(app.nextImage);
+		$('#btn-back').tap(app.backImage);
 		app.connection(window.localStorage.getItem('categorySelected'), window.localStorage.getItem(window.localStorage.getItem('categorySelected')), 0);
+		$('#btn-down').tap(app.share);
 		
 		//anuncios
 		ads.init();
@@ -64,6 +65,10 @@ var app = {
 		var id = parseInt(window.localStorage.getItem(window.localStorage.getItem('categorySelected')));
 		app.connection(window.localStorage.getItem('categorySelected'),id-1, 2);
 		window.localStorage.setItem(window.localStorage.getItem('categorySelected'), id-1);
+	},
+	share: function(){
+		var url = $('#home section img').attr('src');
+		share.image(url);
 	}
 };
 $(app.ready);
@@ -72,5 +77,11 @@ var ads = {
 	init: function(){
 		admob.initAdmob("ca-app-pub-3644885202752337/8471325200","ca-app-pub-3644885202752337/9250054400");
 		admob.showBanner(admob.BannerSize.BANNER,admob.Position.BOTTOM_APP);
+	}
+};
+
+var share = {
+	image: function(url){
+		navigator.share(url,'Comparte esta imagen','image/jpeg');
 	}
 };
