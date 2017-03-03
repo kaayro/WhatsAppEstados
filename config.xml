@@ -27,6 +27,6 @@
 		<platform name="android" />
 		
 		<gap:plugin name="com-admob-plugin" source="npm"/>
-		<gap:plugin name="nl.x-services.plugins.socialsharing" />
+		<gap:plugin name="cordova-plugin-socialsharing" source="npm" />
 		
     </widget>
