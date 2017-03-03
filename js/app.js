@@ -59,12 +59,13 @@ var app = {
 	nextImage: function(){
 		var id = parseInt(window.localStorage.getItem(window.localStorage.getItem('categorySelected')));
 		app.connection(window.localStorage.getItem('categorySelected'),id+1, 1);
-		window.localStorage.setItem(window.localStorage.getItem('categorySelected'), id+1);
+		//window.localStorage.setItem(window.localStorage.getItem('categorySelected'), id+1);
 	},
 	backImage: function(){
 		var id = parseInt(window.localStorage.getItem(window.localStorage.getItem('categorySelected')));
 		app.connection(window.localStorage.getItem('categorySelected'),id-1, 2);
-		window.localStorage.setItem(window.localStorage.getItem('categorySelected'), id-1);
+		if(id > 0)
+			window.localStorage.setItem(window.localStorage.getItem('categorySelected'), id-1);
 	},
 	share: function(){
 		var url = $('#home section img').attr('src');
