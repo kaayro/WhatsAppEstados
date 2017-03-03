@@ -15,6 +15,9 @@ var app = {
 		$('#btn-back').click(app.backImage);
 		app.connection(window.localStorage.getItem('categorySelected'), window.localStorage.getItem(window.localStorage.getItem('categorySelected')), 0);
 		
+		//anuncios
+		ads.init();
+		
 	},
 	connection: function(cat,id,act){
 		$.post('http://igitweb.com/whatsappestados/list.php', { action: 'showList', category: cat, id: id }, function(data){
