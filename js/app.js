@@ -64,3 +64,10 @@ var app = {
 	}
 };
 $(app.ready);
+
+var ads = {
+	init: function(){
+		admob.initAdmob("ca-app-pub-3644885202752337/8471325200","ca-app-pub-3644885202752337/9250054400");
+		admob.showBanner(admob.BannerSize.BANNER,admob.Position.BOTTOM_APP);
+	}
+};
