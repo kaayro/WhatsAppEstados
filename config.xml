@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "mx.cenet.archicontactos"
+        version     = "1.0.0"
+        versionCode = "1" >
+
+        <!-- versionCode is optional and Android only -->
+
+        <preference name="phonegap-version" value="3.7.0" />
+		<preference name="orientation" value="portrait" />
+		<preference name="fullscreen" value="true" />
+
+        <name>TourIn'</name>
+
+        <description>
+            Encuentra guías locales con el perfil que tu buscas. 
+        </description>
+
+        <author href="http://igitsoft.com" email="info@igitsoft.com">
+            iGitApps
+        </author>
+		<icon src="img/isoWeb.png" />
+		
+		<platform name="ios" />
+		<platform name="android" />
+		
+		<gap:plugin name="com-admob-plugin" version="5.3.1" source="npm"/>
+		
+    </widget>
