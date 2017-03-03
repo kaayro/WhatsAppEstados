@@ -11,8 +11,8 @@ var app = {
 		
 		//acciones
 		$('#category').change(app.changeCategory);
-		$('#btn-next').tap(app.nextImage);
-		$('#btn-back').tap(app.backImage);
+		$('#btn-next').click(app.nextImage);
+		$('#btn-back').click(app.backImage);
 		app.connection(window.localStorage.getItem('categorySelected'), window.localStorage.getItem(window.localStorage.getItem('categorySelected')), 0);
 		//$('#btn-down').tap(app.share);
 		
@@ -68,7 +68,7 @@ var app = {
 	},
 	share: function(){
 		var url = $('#home section img').attr('src');
-		share.image(url);
+		//share.image(url);
 	}
 };
 $(app.ready);
