@@ -1,4 +1,7 @@
 var app = {
+	ready: function(){
+		document.addEventListener('deviceready',app.init,false);
+	},
 	init: function(){
 		//window.localStorage.clear();
 		//inicializar valores
@@ -14,7 +17,7 @@ var app = {
 		
 	},
 	connection: function(cat,id,act){
-		$.post('../web/list.php', { action: 'showList', category: cat, id: id }, function(data){
+		$.post('http://igitweb.com/whatsappestados/list.php', { action: 'showList', category: cat, id: id }, function(data){
 			var aux = data.split('>');
 			if(aux.length == 1){
 				data = JSON.parse(data);
@@ -29,7 +32,7 @@ var app = {
 		});
 	},
 	updateRequest: function(){
-		$.post('../web/list.php', { action: 'isThereUpdate' }, function(data){
+		$.post('http://igitweb.com/whatsappestados/list.php', { action: 'isThereUpdate' }, function(data){
 			if(data == '1'){
 				window.localStorage.clear();
 				app.initdatabase();
@@ -60,4 +63,4 @@ var app = {
 		window.localStorage.setItem(window.localStorage.getItem('categorySelected'), id-1);
 	}
 };
-$(app.init);
+$(app.ready);
