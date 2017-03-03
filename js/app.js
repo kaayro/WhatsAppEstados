@@ -82,6 +82,6 @@ var ads = {
 
 var share = {
 	image: function(url){
-		navigator.share(url,'Comparte esta imagen','image/jpeg');
+		window.plugins.socialsharing.share(null, null, url, null)
 	}
 };
