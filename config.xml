@@ -12,10 +12,10 @@
 		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="true" />
 
-        <name>TourIn'</name>
+        <name>WhatsApp Estados</name>
 
         <description>
-            Encuentra guías locales con el perfil que tu buscas. 
+            Encuentra los mejores estados para compartir en WhatsApp. 
         </description>
 
         <author href="http://igitsoft.com" email="info@igitsoft.com">
@@ -26,6 +26,6 @@
 		<platform name="ios" />
 		<platform name="android" />
 		
-		<gap:plugin name="com-admob-plugin" version="5.3.1" source="npm"/>
+		<gap:plugin name="com-admob-plugin" source="npm"/>
 		
     </widget>
