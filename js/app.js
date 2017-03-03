@@ -14,7 +14,7 @@ var app = {
 		$('#btn-next').tap(app.nextImage);
 		$('#btn-back').tap(app.backImage);
 		app.connection(window.localStorage.getItem('categorySelected'), window.localStorage.getItem(window.localStorage.getItem('categorySelected')), 0);
-		$('#btn-down').tap(app.share);
+		//$('#btn-down').tap(app.share);
 		
 		//anuncios
 		ads.init();
@@ -80,8 +80,8 @@ var ads = {
 	}
 };
 
-var share = {
+/*var share = {
 	image: function(url){
-		window.plugins.socialsharing.share(null, null, url, null)
+		window.plugins.socialsharing.share(null, null, url, null);
 	}
-};
+};*/
