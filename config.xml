@@ -26,7 +26,8 @@
 		<platform name="ios" />
 		<platform name="android" />
 		
+		<plugin name="cordova-plugin-file" />
+		<plugin name="cordova-plugin-file-transfer" />
 		<gap:plugin name="com-admob-plugin" source="npm"/>
-		
 		
     </widget>

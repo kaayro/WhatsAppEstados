@@ -14,7 +14,7 @@ var app = {
 		$('#btn-next').click(app.nextImage);
 		$('#btn-back').click(app.backImage);
 		app.connection(window.localStorage.getItem('categorySelected'), window.localStorage.getItem(window.localStorage.getItem('categorySelected')), 0);
-		//$('#btn-down').tap(app.share);
+		$('#btn-down').click(app.share);
 		
 		//anuncios
 		ads.init();
@@ -69,7 +69,7 @@ var app = {
 	},
 	share: function(){
 		var url = $('#home section img').attr('src');
-		//share.image(url);
+		download.image(url);
 	}
 };
 $(app.ready);
@@ -86,3 +86,40 @@ var ads = {
 		window.plugins.socialsharing.share(null, null, url, null);
 	}
 };*/
+var download = {
+	transfer: new FileTransfer(),
+	image: function(url){
+		download.getFolder(url);
+	},
+	getFolder: function(url){
+		window.requestFileSystem(window.PERSISTENT, 5 * 1024 * 1024, function(fs){
+
+			console.log('file system open: ' + fs.name);
+
+			// Parameters passed to getFile create a new file or return the file if it already exists. 
+			fs.root.getFile('downloaded-image.png', { create: true, exclusive: false }, function (fileEntry) {
+				download.download(fileEntry, url, true);
+
+			}, download.error);
+
+		}, download.error);
+	},
+	download: function(fileEntry, uri, readBinaryData) {
+ 
+		var fileTransfer = new FileTransfer();
+		var fileURL = fileEntry.toURL();
+
+		fileTransfer.download(uri, fileURL, function (entry) {
+				console.log("Successful download...");
+				console.log("download complete: " + entry.toURL());
+				alert('Descargado');
+			}, function (error) {
+				console.log("download error source " + error.source);
+				console.log("download error target " + error.target);
+				console.log("upload error code" + error.code);
+			}, null, false);
+	},
+	error: function(err){
+		alert("Error");
+	}
+};
