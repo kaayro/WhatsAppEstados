@@ -91,6 +91,7 @@ var downloadFnc = {
 		downloadFnc.getFolder(url,img[img.length-1]);
 	},
 	getFolder: function(url,img){
+		alert(img);
 		window.requestFileSystem(window.PERSISTENT, 5 * 1024 * 1024, function(fs){
 
 			// Parameters passed to getFile create a new file or return the file if it already exists. 
@@ -105,6 +106,8 @@ var downloadFnc = {
  
 		var fileTransfer = new FileTransfer();
 		var fileURL = fileEntry.toURL();
+		
+		alert(uri);
 
 		fileTransfer.download(uri, fileURL, function (entry) {
 				console.log("Successful download...");
