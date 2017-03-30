@@ -66,6 +66,7 @@ var app = {
 			window.localStorage.setItem(window.localStorage.getItem('categorySelected'), id-1);
 	},
 	download: function(){
+		$('#loading').show();
 		var url = $('#home section img').attr('src');
 		downloadFnc.image(url);
 	}
@@ -96,16 +97,19 @@ var downloadFnc = {
 		fileTransfer.download(uri, fileURL, function (entry) {
 				console.log("Successful download...");
 				console.log("download complete: " + entry.toURL());
-				alert('Descargado');
+				alert('Descargado en '+entry.toURL());
+				$('#loading').hide();
 			}, function (error) {
 				console.log("download error source " + error.source);
 				console.log("download error target " + error.target);
 				console.log("upload error code" + error.code);
 				alert('Error: '+error.code);
+				$('#loading').hide();
 			}, null, false);
 	},
 	error: function(err){
 		alert("Error");
+		$('#loading').hide();
 	}
 };
 
