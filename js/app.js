@@ -67,22 +67,18 @@ var app = {
 	},
 	download: function(){
 		var url = $('#home section img').attr('src');
-		alert(downloadFnc);
 		downloadFnc.image(url);
 	}
 };
 $(app.ready);
 
 var downloadFnc = {
-	//transfer: new FileTransfer(),
 	image: function(url){
 		var img = url.split('/');
-		alert(img);
 		downloadFnc.getFolder(url,img[img.length-1]);
 	},
 	getFolder: function(url,img){
-		alert(img);
-		window.requestFileSystem(window.PERSISTENT, 5 * 1024 * 1024, function(fs){
+		window.requestFileSystem(window.PERSISTENT, 0, function(fs){
 
 			// Parameters passed to getFile create a new file or return the file if it already exists. 
 			fs.root.getFile(img, { create: true, exclusive: false }, function (fileEntry) {
@@ -96,8 +92,6 @@ var downloadFnc = {
  
 		var fileTransfer = new FileTransfer();
 		var fileURL = fileEntry.toURL();
-		
-		alert(uri);
 
 		fileTransfer.download(uri, fileURL, function (entry) {
 				console.log("Successful download...");
