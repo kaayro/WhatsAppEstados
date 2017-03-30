@@ -93,6 +93,7 @@ var downloadFnc = {
  
 		var fileTransfer = new FileTransfer();
 		var fileURL = fileEntry.toURL();
+		alert(fileURL);
 
 		fileTransfer.download(uri, fileURL, function (entry) {
 				console.log("Successful download...");
