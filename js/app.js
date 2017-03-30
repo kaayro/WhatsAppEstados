@@ -70,7 +70,7 @@ var app = {
 		downloadFnc.image(url);
 	}
 };
-$(app.init);
+$(app.ready);
 
 var ads = {
 	init: function(){
