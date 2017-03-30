@@ -73,20 +73,8 @@ var app = {
 };
 $(app.ready);
 
-var ads = {
-	init: function(){
-		admob.initAdmob("ca-app-pub-3644885202752337/8471325200","ca-app-pub-3644885202752337/9250054400");
-		admob.showBanner(admob.BannerSize.BANNER,admob.Position.BOTTOM_APP);
-	}
-};
-
-/*var share = {
-	image: function(url){
-		window.plugins.socialsharing.share(null, null, url, null);
-	}
-};*/
 var downloadFnc = {
-	transfer: new FileTransfer(),
+	//transfer: new FileTransfer(),
 	image: function(url){
 		var img = url.split('/');
 		alert(img);
@@ -126,3 +114,16 @@ var downloadFnc = {
 		alert("Error");
 	}
 };
+
+var ads = {
+	init: function(){
+		admob.initAdmob("ca-app-pub-3644885202752337/8471325200","ca-app-pub-3644885202752337/9250054400");
+		admob.showBanner(admob.BannerSize.BANNER,admob.Position.BOTTOM_APP);
+	}
+};
+
+/*var share = {
+	image: function(url){
+		window.plugins.socialsharing.share(null, null, url, null);
+	}
+};*/
