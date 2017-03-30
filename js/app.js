@@ -15,7 +15,7 @@ var app = {
 		$(document).on('click','#btn-next',app.nextImage);
 		$('#btn-back').click(app.backImage);
 		app.connection(window.localStorage.getItem('categorySelected'), window.localStorage.getItem(window.localStorage.getItem('categorySelected')), 0);
-		$('#btn-down').click(app.share);
+		$('#btn-down').click(app.download);
 		
 		//anuncios
 		ads.init();
@@ -31,8 +31,6 @@ var app = {
 				window.localStorage.setItem(window.localStorage.getItem('categorySelected'), id);			
 			}else
 				$('#loading').hide();
-		}).fail(function(e){
-			alert(e);
 		});
 	},
 	updateRequest: function(){
@@ -67,12 +65,12 @@ var app = {
 		if(id > 0)
 			window.localStorage.setItem(window.localStorage.getItem('categorySelected'), id-1);
 	},
-	share: function(){
+	download: function(){
 		var url = $('#home section img').attr('src');
-		download.image(url);
+		downloadFnc.image(url);
 	}
 };
-$(app.ready);
+$(app.init);
 
 var ads = {
 	init: function(){
@@ -86,23 +84,22 @@ var ads = {
 		window.plugins.socialsharing.share(null, null, url, null);
 	}
 };*/
-/*var download = {
+var downloadFnc = {
 	transfer: new FileTransfer(),
 	image: function(url){
-		download.getFolder(url);
+		var img = url.split('/');
+		downloadFnc.getFolder(url,img[img.length-1]);
 	},
-	getFolder: function(url){
+	getFolder: function(url,img){
 		window.requestFileSystem(window.PERSISTENT, 5 * 1024 * 1024, function(fs){
 
-			console.log('file system open: ' + fs.name);
-
 			// Parameters passed to getFile create a new file or return the file if it already exists. 
-			fs.root.getFile('downloaded-image.png', { create: true, exclusive: false }, function (fileEntry) {
-				download.download(fileEntry, url, true);
+			fs.root.getFile(img, { create: true, exclusive: false }, function (fileEntry) {
+				downloadFnc.download(fileEntry, url, true);
 
-			}, download.error);
+			}, downloadFnc.error);
 
-		}, download.error);
+		}, downloadFnc.error);
 	},
 	download: function(fileEntry, uri, readBinaryData) {
  
@@ -117,9 +114,10 @@ var ads = {
 				console.log("download error source " + error.source);
 				console.log("download error target " + error.target);
 				console.log("upload error code" + error.code);
+				alert('Error: '+error.code);
 			}, null, false);
 	},
 	error: function(err){
 		alert("Error");
 	}
-};*/
+};
