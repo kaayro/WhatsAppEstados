@@ -1,6 +1,6 @@
 var app = {
-	//server: 'http://igitweb.com/whatsappestados/list.php',
-	server: 'http://localhost/iGitweb/EstadosWhats/web/list.php',
+	server: 'http://igitweb.com/whatsappestados/list.php',
+	//server: 'http://localhost/iGitweb/EstadosWhats/web/list.php',
 	ready: function(){
 		document.addEventListener('deviceready',app.init,false);
 	},
