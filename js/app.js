@@ -1,9 +1,10 @@
 var app = {
+	//server: 'http://igitweb.com/whatsappestados/list.php',
+	server: 'http://localhost/iGitweb/EstadosWhats/web/list.php',
 	ready: function(){
 		document.addEventListener('deviceready',app.init,false);
 	},
 	init: function(){
-		//window.localStorage.clear();
 		//inicializar valores
 		app.initdatabase();
 		app.updateRequest();
@@ -11,7 +12,7 @@ var app = {
 		
 		//acciones
 		$('#category').change(app.changeCategory);
-		$('#btn-next').click(app.nextImage);
+		$(document).on('tap','#btn-next',app.nextImage);
 		$('#btn-back').click(app.backImage);
 		app.connection(window.localStorage.getItem('categorySelected'), window.localStorage.getItem(window.localStorage.getItem('categorySelected')), 0);
 		$('#btn-down').click(app.share);
@@ -21,22 +22,19 @@ var app = {
 		
 	},
 	connection: function(cat,id,act){
-		$.post('http://igitweb.com/whatsappestados/list.php', { action: 'showList', category: cat, id: id }, function(data){
-			var aux = data.split('>');
-			if(aux.length == 1){
-				data = JSON.parse(data);
+		$('#loading').show();
+		$.post(app.server, { action: 'showList', category: cat, id: id }, function(data){
+			data = JSON.parse(data);
+			if(data.last == 0 && id >= 0){
 				$('#home section img').attr('src',data.url);
-			}else{
-				var id = parseInt(window.localStorage.getItem(window.localStorage.getItem('categorySelected')));
-				if(act == 1)
-					window.localStorage.setItem(window.localStorage.getItem('categorySelected'), id-1);
-				else if(act == 2)
-					window.localStorage.setItem(window.localStorage.getItem('categorySelected'), id+1);				
-			}
+				$('#home section img')[0].addEventListener('load',function(){$('#loading').hide();},false);
+				window.localStorage.setItem(window.localStorage.getItem('categorySelected'), id);			
+			}else
+				$('#loading').hide();
 		});
 	},
 	updateRequest: function(){
-		$.post('http://igitweb.com/whatsappestados/list.php', { action: 'isThereUpdate' }, function(data){
+		$.post(app.server, { action: 'isThereUpdate' }, function(data){
 			if(data == '1'){
 				window.localStorage.clear();
 				app.initdatabase();
@@ -86,7 +84,7 @@ var ads = {
 		window.plugins.socialsharing.share(null, null, url, null);
 	}
 };*/
-var download = {
+/*var download = {
 	transfer: new FileTransfer(),
 	image: function(url){
 		download.getFolder(url);
@@ -122,4 +120,4 @@ var download = {
 	error: function(err){
 		alert("Error");
 	}
-};
+};*/

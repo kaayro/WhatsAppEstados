@@ -10,8 +10,8 @@
 /*fuentes*/
 @font-face {font-family: 'icomoon';src:  url('../fonts/icomoon.eot?6799ne');src:  url('../fonts/icomoon.eot?6799ne#iefix') format('embedded-opentype'),url('../fonts/icomoon.ttf?6799ne') format('truetype'),url('../fonts/icomoon.woff?6799ne') format('woff'),url('../fonts/icomoon.svg?6799ne#icomoon') format('svg');font-weight: normal;font-style: normal;}[class^="fa-"],[class*=" fa-"]{font-family: 'icomoon' !important;speak: none;font-style: normal;font-weight: normal;font-variant: normal;text-transform: none;line-height: 1;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}.fa-download:before{content: "\e900";}.fa-arrow-left:before{content: "\e901";}.fa-arrow-right:before{content: "\e902";}
 
-body,html{margin:0;padding:0;height:100vh;font-family:Arial;}
-div.page{margin:0;padding:0;overflow-x:hidden;overflow-y:auto;height:100vh;background-color:#D9ECF2;display:flex;flex-direction:column;}
+body,html{margin:0;padding:0;height:100vh;font-family:Arial;overflow:hidden;}
+div.page{margin:0;padding:0;overflow-x:hidden;overflow-y:auto;height:100vh;background-color:#D9ECF2;display:flex;flex-direction:column;position:absolute;top:0;left:0;width:100%;box-sizing:border-box;}
 div.page header{margin:0;padding:15px;background-color:#002D40;text-align:center;}
 div.page header h1{margin:0;padding:0;text-align:center;color:#FF414D;font-size:20px;}
 div.page section{flex: 1;overflow:auto;display:flex;align-items:center;}
@@ -24,3 +24,6 @@ div#actions button{padding:15px;font-size:20px;color:#fff;border:none;margin:0;}
 button#btn-back{background-color:#002D40;}
 button#btn-down{background-color:#1AA6B7;flex:1;}
 button#btn-next{background-color:#002D40;}
+
+div#loading{justify-content:center;background-color:rgba(0,45,64,0.6);display:none;}
+div#loading div.center{margin:0;padding:0;height:100vh;display:flex;flex-direction:column;justify-content:center;}
