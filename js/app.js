@@ -31,6 +31,8 @@ var app = {
 				window.localStorage.setItem(window.localStorage.getItem('categorySelected'), id);			
 			}else
 				$('#loading').hide();
+		}).fail(function(e){
+			alert(e);
 		});
 	},
 	updateRequest: function(){
