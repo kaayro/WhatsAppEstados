@@ -67,6 +67,7 @@ var app = {
 	},
 	download: function(){
 		var url = $('#home section img').attr('src');
+		alert(downloadFnc);
 		downloadFnc.image(url);
 	}
 };
@@ -88,6 +89,7 @@ var downloadFnc = {
 	transfer: new FileTransfer(),
 	image: function(url){
 		var img = url.split('/');
+		alert(img);
 		downloadFnc.getFolder(url,img[img.length-1]);
 	},
 	getFolder: function(url,img){
