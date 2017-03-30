@@ -12,7 +12,7 @@ var app = {
 		
 		//acciones
 		$('#category').change(app.changeCategory);
-		$(document).on('tap','#btn-next',app.nextImage);
+		$(document).on('click','#btn-next',app.nextImage);
 		$('#btn-back').click(app.backImage);
 		app.connection(window.localStorage.getItem('categorySelected'), window.localStorage.getItem(window.localStorage.getItem('categorySelected')), 0);
 		$('#btn-down').click(app.share);

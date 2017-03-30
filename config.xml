@@ -8,7 +8,7 @@
 
         <!-- versionCode is optional and Android only -->
 
-        <preference name="phonegap-version" value="3.7.0" />
+        <preference name="phonegap-version" value="cli-6.5.0" />
 		<preference name="orientation" value="portrait" />
 		<preference name="fullscreen" value="true" />
 
@@ -21,13 +21,19 @@
         <author href="http://igitsoft.com" email="info@igitsoft.com">
             iGitApps
         </author>
-		<icon src="img/isoWeb.png" />
+		<icon src="img/whatsapp.png" />
 		
-		<platform name="ios" />
 		<platform name="android" />
 		
 		<plugin name="cordova-plugin-file" />
 		<plugin name="cordova-plugin-file-transfer" />
 		<gap:plugin name="com-admob-plugin" source="npm"/>
+		<plugin name="cordova-plugin-whitelist" source="npm" />
+		
+		<allow-navigation href="http://*/*" />
+		<allow-navigation href="https://*/*" />
+		<allow-navigation href="data:*" />
+		
+		<access origin="*" />
 		
     </widget>
