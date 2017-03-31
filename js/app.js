@@ -109,9 +109,9 @@ var downloadFnc = {
 			}, null, false);*/
 		window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (dirEntry) {
 			alert('file system open: ' + dirEntry.name);
-			var isAppend = true;
-			createFile(dirEntry, "fileToAppend.txt", isAppend);
-		}, onErrorLoadFs);
+			/*var isAppend = true;
+			createFile(dirEntry, "fileToAppend.txt", isAppend);*/
+		}, downloadFnc.error);
 	},
 	error: function(err){
 		alert("Error");
