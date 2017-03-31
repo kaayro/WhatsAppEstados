@@ -82,7 +82,6 @@ var downloadFnc = {
 		window.requestFileSystem(window.PERSISTENT, 0, function(fs){
 
 			// Parameters passed to getFile create a new file or return the file if it already exists. 
-			alert(fs.root.toURL());
 			fs.root.getFile(img, { create: true, exclusive: false }, function (fileEntry) {
 				downloadFnc.download(fileEntry, url, true);
 
@@ -92,7 +91,7 @@ var downloadFnc = {
 	},
 	download: function(fileEntry, uri, readBinaryData) {
  
-		var fileTransfer = new FileTransfer();
+		/*var fileTransfer = new FileTransfer();
 		var fileURL = fileEntry.toURL();
 		alert(fileURL);
 
@@ -107,7 +106,12 @@ var downloadFnc = {
 				console.log("upload error code" + error.code);
 				alert('Error: '+error.code);
 				$('#loading').hide();
-			}, null, false);
+			}, null, false);*/
+		window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (dirEntry) {
+			alert('file system open: ' + dirEntry.name);
+			var isAppend = true;
+			createFile(dirEntry, "fileToAppend.txt", isAppend);
+		}, onErrorLoadFs);
 	},
 	error: function(err){
 		alert("Error");
