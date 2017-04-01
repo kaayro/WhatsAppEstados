@@ -98,7 +98,6 @@ var downloadFnc = {
 			console.log("Successful download...");
 			console.log("download complete: " + entry.toURL());
 			alert('Descarga exitosa, ya puedes compartirlo como estado de WhatsApp');
-			refreshMedia.refresh(fileURL);
 			$('#loading').hide();
 		}, function (error) {
 			console.log("download error source " + error.source);
