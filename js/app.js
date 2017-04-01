@@ -82,7 +82,7 @@ var downloadFnc = {
 		window.requestFileSystem(window.PERSISTENT, 0, function(fs){
 
 			// Parameters passed to getFile create a new file or return the file if it already exists. 
-			fs.root.getFile(img, { create: true, exclusive: false }, function (fileEntry) {
+			fs.root.getFile('download/'+img, { create: true, exclusive: false }, function (fileEntry) {
 				downloadFnc.download(fileEntry, url, true);
 
 			}, downloadFnc.error);
