@@ -92,13 +92,13 @@ var downloadFnc = {
 	download: function(fileEntry, uri, readBinaryData) {
  
 		var fileTransfer = new FileTransfer();
-		var fileURL = fileEntry.toURL();
-		alert(fileURL);
+		var fileURL = fileEntry.toURL()+'/Download';
 
 		fileTransfer.download(uri, fileURL, function (entry) {
 			console.log("Successful download...");
 			console.log("download complete: " + entry.toURL());
-			alert('Descargado en '+entry.toURL());
+			alert('Descarga exitosa, ya puedes compartirlo como estado de WhatsApp');
+			refreshMedia.refresh(fileURL);
 			$('#loading').hide();
 		}, function (error) {
 			console.log("download error source " + error.source);
@@ -118,7 +118,13 @@ var ads = {
 	init: function(){
 		admob.initAdmob("ca-app-pub-3644885202752337/8471325200","ca-app-pub-3644885202752337/9250054400");
 		admob.showBanner(admob.BannerSize.BANNER,admob.Position.BOTTOM_APP);
+		document.addEventListener(admob.Event.onInterstitialReceive, ads.onInterstitialReceive, false);//show in ad receive event fun need add receive listener
+		admob.cacheInterstitial();// load admob Interstitial
+	},
+	onInterstitialReceive: function(message) {//show in ad receive event fun
+		admob.showInterstitial();
 	}
+	
 };
 
 /*var share = {

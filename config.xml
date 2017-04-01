@@ -30,6 +30,7 @@
 		<plugin name="cordova-plugin-file-transfer" />
 		<gap:plugin name="com-admob-plugin" source="npm"/>
 		<plugin name="cordova-plugin-whitelist" source="npm" />
+		<gap:plugin name="com.guinatal.refreshgallery" source="npm" />
 		
 		
 		
