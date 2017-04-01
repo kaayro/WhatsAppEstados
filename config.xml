@@ -28,8 +28,10 @@
 		
 		<plugin name="cordova-plugin-file" />
 		<plugin name="cordova-plugin-file-transfer" />
+		<plugin name="cordova-plugin-dialogs" />
 		<gap:plugin name="com-admob-plugin" source="npm"/>
 		<plugin name="cordova-plugin-whitelist" source="npm" />
+		<gap:plugin name="cordova-plugin-refresh-gallery" source="npm" />
 		
 		
 		

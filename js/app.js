@@ -95,21 +95,20 @@ var downloadFnc = {
 		var fileURL = fileEntry.toURL();
 
 		fileTransfer.download(uri, fileURL, function (entry) {
-			console.log("Successful download...");
-			console.log("download complete: " + entry.toURL());
-			alert('Descarga exitosa, ya puedes compartirlo como estado de WhatsApp');
-			$('#loading').hide();
+			navigator.notification.alert('Ya puedes compartirlo como estado de WhatsApp',function(){
+				refreshMedia.refresh(fileURL);
+				$('#loading').hide();
+			},'Descarga Exitosa','Aceptar');
 		}, function (error) {
-			console.log("download error source " + error.source);
-			console.log("download error target " + error.target);
-			console.log("upload error code" + error.code);
-			alert('Error: '+error.code);
-			$('#loading').hide();
+			navigator.notification.alert('Error: '+error.code, function(){
+				$('#loading').hide();
+			},'Error de Descarga','Aceptar');
 		}, null, false);
 	},
 	error: function(err){
-		alert("Error");
-		$('#loading').hide();
+		navigator.notification.alert('Error: '+error.code, function(){
+			$('#loading').hide();
+		},'Error de Descarga','Aceptar');
 	}
 };
 
