@@ -92,7 +92,7 @@ var downloadFnc = {
 	download: function(fileEntry, uri, readBinaryData) {
  
 		var fileTransfer = new FileTransfer();
-		var fileURL = fileEntry.toURL()+'/Download';
+		var fileURL = fileEntry.toURL();
 
 		fileTransfer.download(uri, fileURL, function (entry) {
 			console.log("Successful download...");
