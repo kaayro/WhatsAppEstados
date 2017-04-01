@@ -91,27 +91,22 @@ var downloadFnc = {
 	},
 	download: function(fileEntry, uri, readBinaryData) {
  
-		/*var fileTransfer = new FileTransfer();
+		var fileTransfer = new FileTransfer();
 		var fileURL = fileEntry.toURL();
 		alert(fileURL);
 
 		fileTransfer.download(uri, fileURL, function (entry) {
-				console.log("Successful download...");
-				console.log("download complete: " + entry.toURL());
-				alert('Descargado en '+entry.toURL());
-				$('#loading').hide();
-			}, function (error) {
-				console.log("download error source " + error.source);
-				console.log("download error target " + error.target);
-				console.log("upload error code" + error.code);
-				alert('Error: '+error.code);
-				$('#loading').hide();
-			}, null, false);*/
-		window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function (dirEntry) {
-			alert('file system open: ' + dirEntry.toURL());
-			/*var isAppend = true;
-			createFile(dirEntry, "fileToAppend.txt", isAppend);*/
-		}, downloadFnc.error);
+			console.log("Successful download...");
+			console.log("download complete: " + entry.toURL());
+			alert('Descargado en '+entry.toURL());
+			$('#loading').hide();
+		}, function (error) {
+			console.log("download error source " + error.source);
+			console.log("download error target " + error.target);
+			console.log("upload error code" + error.code);
+			alert('Error: '+error.code);
+			$('#loading').hide();
+		}, null, false);
 	},
 	error: function(err){
 		alert("Error");
