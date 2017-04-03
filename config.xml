@@ -2,7 +2,7 @@
     <widget xmlns = "http://www.w3.org/ns/widgets"
 
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.igitweb.whatsappestados"
+        id          = "com.igitweb.whatstados"
         version     = "1.0.0"
         versionCode = "1" >
 
@@ -13,13 +13,13 @@
 		<preference name="fullscreen" value="true" />
 		<preference name="AndroidPersistentFileLocation" value="Compatibility" />
 
-        <name>WhatsApp Estados</name>
+        <name>WhatStados</name>
 
         <description>
-            Encuentra los mejores estados para compartir en WhatsApp. 
+            Encuentra los mejores estados para compartir en WhatsApp o en Redes Sociales. 
         </description>
 
-        <author href="http://igitsoft.com" email="info@igitsoft.com">
+        <author href="http://igitweb.com/apps" email="info@igitweb.com">
             iGitApps
         </author>
 		<icon src="img/whatsapp.png" />
